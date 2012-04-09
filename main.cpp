@@ -71,12 +71,13 @@ double* applyM_p(double * pbuf, double * t, int npoints)
  double * rispbuf = new double [npoints *3];
 
  double partial=0;
- for(int p=0; p<npoints; p++)
+ int p=0, row=0,column=0;
+ for( p=0; p<npoints; p++)
  {//cycle over points
 
-        for(int row=0; row < tdimx-1; row++)//do not calculate the 4th row
+        for( row=0; row < tdimx-1; row++)//do not calculate the 4th row
         {
-                for(int column=0; column<tdimy ; column ++)  
+                for( column=0; column<tdimy ; column ++)  
                 {
                 if(column == tdimx-1) partial += t[tdimx*row +column];
                 else  
